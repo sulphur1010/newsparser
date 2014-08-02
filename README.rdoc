@@ -1,23 +1,8 @@
-== README
+== Newsparser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version : 2.0
-
-* System dependencies: rails : 4.0
-
--- Items
-  - Priorities
-     
-     1:"Low"
-     2:"Moderate"
-     3:"High"
-     4:"Urgent"
+This is an application that extracts news from news websites and parses them for location, context (People, issues, etc being talked about) through NLP and shows them to user, allowing him to search news based on the items he's interested in.
+eg: News about AAP and Sonia Gandhi in Mumbai, New Delhi and Chandigarh regions.
 
 
+Still a work in progress. Uses yahoo pipes to parse news, Machine linking API to extract context, and a cron job to parse the news.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
