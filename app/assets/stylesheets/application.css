@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+
+ *=require "bootstrap"
+ *= require_tree
+ *= require_self
+ 
+ */
+
+.feature{
+	min-height:300px;
+}
+.padded{
+	padding:20px;
+}
+
+.ellipsis{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;    
+
+}
+.nomarginvertical{
+	margin-top:0;
+	margin-bottom:0;
+}
+
+.text-green{
+	color:#015b4e ;
+}
+.currency{
+	font-size:70%;
+}
+
+.smaller{
+	font-size:80%;
+}
+.temphidden{
+	display:none;
+}
+
+.clear-navbar{
+	height:63px;
+}
+
+.infinity-preloader{
+	max-width:128px;
+	width:100%;
+}
+.invisible{
+	visibility:hidden;
+}
+.loader{
+width:20px;
+display:none;
+}
+.loader img{
+	width:100%;
+}
+.loader-done{
+	font-size:150%;
+	color:#47a447;
+	display:none;
+
+}
+.autofit{
+	width:100%;
+}
+.hide{
+	display:none;
+}
+.error_message .message-text{
+	font-size:20px;
+	margin-bottom:10px;
+}
+.main{
+	height:100%;
+}
+body{
+}
+.white-bg{
+	background:white;
+	border: 2px solid #ebebeb;
+	border-width:0px 2px 0px 2px;
+	min-height:100%;
+}
+
+body,html{
+	height:100%;
+}
+

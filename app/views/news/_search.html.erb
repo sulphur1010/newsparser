@@ -1,0 +1,28 @@
+
+<%=form_tag "/news", :method=>"GET" do %>
+<%
+cities=[]
+@news.each do |n|
+	cities.push(n.city_id)
+end
+
+
+category=[]
+city=[]
+if(params[:search])
+	category=params[:search][:category]
+	city=params[:search][:city]
+end
+
+
+%>
+<%unless params[:action]=="category"%>
+<%=select_tag("search[category]",options_from_collection_for_select(Category.all,:id,:name,category),:multiple=>true,:class=>"select")%>
+<%end%>
+
+<%unless params[:action]=="city"%>
+<%=select_tag("search[city]",options_from_collection_for_select(City.find(cities),:id,:name,city),:multiple=>true,:class=>"select")%>
+<%end%>
+<%=submit_tag("Filter")%>
+
+<%end%>

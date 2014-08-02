@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  item_id: 
+  completed: false
+  fund: 1.5
+  priority: 1
+
+two:
+  user_id: 
+  item_id: 
+  completed: false
+  fund: 1.5
+  priority: 1

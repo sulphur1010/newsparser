@@ -1,0 +1,57 @@
+<h1><%=@title%></h1>
+
+<%=render "search"%>
+<%@news.each do |item| 
+	
+	%>
+
+
+
+	<%
+	if(item.content)
+		content=sanitize(item.content.html_safe, :tags=>["br"])
+
+	%>
+		<div class="news ">
+			<h2 class="ellipsis"><%=item.title%></h2>
+
+				<i class="icon-calendar"></i> <%=item.date.strftime("%B %d, %Y")%>
+				<%unless item.city==nil %>
+				<a href="<%=city_path(item.city.id)%>">
+					<span class="label label-primary">
+						<%= item.city.name %>
+					</span>
+				</a>
+				<%end%>
+		
+			<div class="row">
+				<div class="col-sm-3 col-xs-3 col-md-2 col-lg-2">
+					<%=image_tag item.picture.url,:class=>"autofit img-thumbnail"%>
+				</div>
+				<div class="col-sm-6 col-xs-6 col-md-7 col-lg-7">
+				<%if item.content %>
+					<div> <%=item.summary%></div> 
+				<%end%>
+
+				Tags: <%item.tags.each do |t|%>
+						<span class="label label-warning"><a href="<%=tag_path(t.name)%>"><%=t.name%></a></span>
+					<%end%>
+				</div>
+
+				<div class="col-sm-3 col-xs-3 col-md-2 col-lg-2 news-meta">
+					<table>
+						<tbody>
+					<tr><td>Category: </td><td><a href="<%=category_path(item.category.id)%>"> <%=item.category.name%></a></td></tr>
+					<tr><td>Source: </td><td><a target="_blank" href="<%=item.url%>"><%=unless item.source==nil then item.source.name end%><i class="icon icon-link"></i></a></td></tr>
+					
+
+						</tbody>
+					</table>
+				</div>
+				
+			</div>
+		</div>
+		<hr/>
+		<%
+	end
+end%>

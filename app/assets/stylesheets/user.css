@@ -1,0 +1,50 @@
+.userblock{
+    position: relative;
+    margin: 15px 0 40px 0;
+    padding: 10px 8px 8px 54px;
+
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), inset 0 1px 0 white;
+    background: #f6f6f6;
+
+}
+.userblock img{
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    z-index: 10;
+    margin: 0;
+    margin-top:5px;
+    padding: 4px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #bbbbbb;
+    box-shadow: 0 1px 0 white;
+    border-radius: 50%;
+    background: white;
+}
+.userblock h2{
+    margin: 0;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+
+    color: #4b4b4b;
+    text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.7);
+}
+.userblock .info{
+    margin: 0;
+    display: block;
+}
+.userblock-dropdown{
+   top:26px;
+
+}
+.userblock a{
+    text-decoration:none;
+
+}
+.userblock a.username{
+    display:block;
+}

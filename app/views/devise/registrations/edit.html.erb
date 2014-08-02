@@ -1,0 +1,59 @@
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">Registration</h1>
+        <ul class="pull-right breadcrumb">
+            <li><%=link_to("Home",:root)%></li>
+          
+            <li class="active">Edit Profile</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+
+<!--=== Content Part ===-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,:class=>"reg-page" }) do |f| %>
+  <%= devise_error_messages! %>
+
+                <div class="reg-header">
+                    <h2>Edit Profile</h2>
+                    <p>Keep your profile updated.</p>     
+                  
+                </div>
+                <%= f.label :name %>
+                <%= f.text_field :name, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+  <%if(current_user.provider==nil)%>
+     
+                <label for="user[email]">Email <span class="color-red">*</span></label>
+                <%= f.email_field :email, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+  <%end%>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+   
+
+
+  <%if(current_user.provider==nil)%>
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, :autocomplete => "off",:class=>"form-control margin-bottom-20" %>
+
+   <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation,:class=>"form-control margin-bottom-20" %>
+  <%end%>
+
+  <%= f.submit "Update",:class=>"btn-u margin-bottom-20 margin-top-20" %>
+
+<% end %>
+
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete ,:class=>"btn btn-danger"%></p>
+
+</div></div></div>

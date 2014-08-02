@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=configatron.website.name%></title>
+  <script type="text/javascript">
+ 
+  </script>
+
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+  
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+
+
+
+<%= render template: "partials/menubar" %>
+
+
+
+</div>
+
+<%= render template: "partials/flashmessages" %>
+
+<div class="clear-navbar"></div>
+<div class="container main ">
+<%= yield %>
+</div>
+
+
+<% if params[:controller]=="content"%>
+<div class="copyright">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">            
+              <p class="copyright-space">
+                    2013 © <%=configatron.website.name%>. ALL Rights Reserved. 
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+                </p>
+      </div>
+      <div class="col-md-6">  
+       
+      </div>
+    </div><!--/row-->
+  </div><!--/container--> 
+</div>
+<%end%>
+</body>
+</html>

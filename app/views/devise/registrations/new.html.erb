@@ -1,0 +1,63 @@
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+    <div class="container">
+        <h1 class="pull-left">Registration</h1>
+        <ul class="pull-right breadcrumb">
+            <li><%=link_to("Home",:root)%></li>
+          
+            <li class="active">Signup</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+
+
+<!--=== Content Part ===-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),html:{:class=>"reg-page"}) do |f| %>
+              <%= devise_error_messages! %>
+
+                <div class="reg-header">
+                    <h2>Register a new account</h2>
+                    <p>Already Signed Up? Click   <%= link_to "here", new_session_path(resource_name) %>  to login your account.</p>                    
+                </div>
+
+                <%= f.label :name %>
+                <%= f.text_field :name, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+            
+                <label>Email <span class="color-red">*</span></label>
+                <%= f.email_field :email, :autofocus => true,:class=>"form-control margin-bottom-20" %>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Password <span class="color-red">*</span></label>
+                        <%= f.password_field :password,:class=>"form-control margin-bottom-20" %>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Confirm Password <span class="color-red">*</span></label>
+                          <%= f.password_field :password_confirmation,:class=>"form-control margin-bottom-20" %>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <label class="checkbox">
+                            <input type="checkbox"> 
+                            I read <a href="page_terms.html" class="color-green">Terms and Conditions</a>
+                        </label>                        
+                    </div>
+                    <div class="col-lg-6 text-right">
+                          <%= f.submit "Sign Up",:class=>"btn-u" %>       
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div><!--/container-->   
+<!--=== End Content Part ===-->

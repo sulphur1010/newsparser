@@ -1,0 +1,70 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            
+
+        </a>
+    </div>
+
+
+    <div class="collapse navbar-collapse navbar-responsive-collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+
+         
+            <li class="<%= if params[:controller]=="content" and params[:action]=="about" then :active end%>"><%=link_to "About", about_path%></li>
+            <li class="dclass="<%= if params[:controller]=="items" then :active end%>"ropdown">
+                 <% if current_user %>
+
+            <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"  href="#" data-toggle="dropdown" class="username"><%=current_user.name.split(' ').select {|w| w.capitalize! || w }.join(' ');%>
+              <i class="icon-caret-down"></i>
+            </a>
+
+                <!-- Link or button to toggle dropdown -->
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              
+        <li ><%= link_to "Profile", edit_user_registration_path %></li>
+
+
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+
+
+            </ul>
+
+        <% else %> <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0"  data-toggle="dropdown" >Login     <i class="icon-caret-down"></i></a>
+
+            <!-- Link or button to toggle dropdown -->
+          <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <li><%= link_to "Login", new_user_session_path %></li>
+
+            
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><a href="<%=user_omniauth_authorize_path(:facebook, :display=>"popup")%>">Signup with Facebook</a></li>
+
+          </ul>
+        <%end%>
+
+            </li>            
+            <% if (current_user) %>
+
+         
+
+          <% else%>
+        
+          <li class=""><a href="<%=user_omniauth_authorize_path(:facebook, :display=>"popup")%>"><i class="icon-facebook-sign"></i> Facebook Login </a></li>
+          <%end%>   
+        </ul>
+     
+
+    
+    </div>
+  </div>
+</div>

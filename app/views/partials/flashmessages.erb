@@ -1,0 +1,19 @@
+<div class="flashmessages">
+<% [:info, :error,:success ,:notice,:alert].each do |key| %>
+    <% if flash[key].present? %>
+        <% 
+        if key==:notice
+    		type=:info
+        elsif key==:alert
+            type==:warning
+    	else 
+    		type=key
+    	end
+    	%>
+        <div class="alert alert-<%=type%>">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[key]%>
+        </div>
+    <% end %>
+<% end %>
+</div>
